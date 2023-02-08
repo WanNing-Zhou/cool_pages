@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元宵快乐</title>
+  <style>
+    /* 定义全局变量 */
+    :root {
+      --lineColor: #ecaa2f;
+      --bg: #f00;
+      background: url(./veg.jpg) no-repeat;
+      background-size: cover;
+    }
+
+    /*整体骨架搭建 */
+    .container {
+      position: relative;
+      width: 200px;
+      height: 150px;
+      /* background-color: rgb(140, 204, 193); */
+      animation: rotate 3s infinite ease-in;
+    }
+
+    /* 主体部分 */
+    .center {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg);
+      border-radius: 80px;
+      box-shadow: 0 0 80px var(--bg);
+      animation: rotate 3s infinite ease-in-out;
+      transform-origin: top center;
+    }
+
+    /* 上半盖子 */
+    .center::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 80px;
+      height: 10px;
+      top: -8px;
+      left: 50%;
+      /* left: calc(50% - 40px); */
+      transform: translateX(-50%);
+      background: var(--lineColor);
+      border-radius: 5px 5px 0 0;
+    }
+
+    /* 下半盖子 */
+    .center::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 80px;
+      height: 10px;
+      bottom: -8px;
+      left: calc(50% - 40px);
+      background: var(--lineColor);
+      border-radius: 0 0 5px 5px;
+    }
+
+    /* 骨架 */
+    .center-line {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 灯笼上的文字 */
+    .center-line span {
+      position: absolute;
+      top: calc(50%);
+      left: calc(50%);
+      transform: translate(-50%, -50%);
+      width: 18px;
+      font-size: 18px;
+      color: var(--lineColor);
+      font-weight: 700;
+      /* font-family: '圆体'; */
+    }
+
+    /* 骨架中体黄线  */
+    .center-line::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: calc(50% - 75px);
+      width: 150px;
+      height: 150px;
+      border: 2px solid var(--lineColor);
+      border-radius: 50%;
+    }
+
+    .center-line::after {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0;
+      left: calc(50% - 35px);
+      width: 70px;
+      height: 150px;
+      border: 2px solid var(--lineColor);
+      border-radius: 50%;
+    }
+
+    /* 顶部黄线 */
+    .head-line {
+      position: absolute;
+      left: calc(50% - 2px);
+      top: -60px;
+      width: 4px;
+      height: 60px;
+      background-color: var(--lineColor);
+    }
+
+    /* 底部黄线 */
+    .footer-line {
+      position: absolute;
+      left: calc(50% - 2px);
+      bottom: -50px;
+      width: 4px;
+      height: 50px;
+      background-color: var(--lineColor);
+      animation: rotate 3s infinite ease-in-out;
+    }
+
+    /* 底部穗穗 */
+    .footer-line::after {
+      position: absolute;
+      content: "";
+      bottom: -75px;
+      left: calc(50% - 8px);
+      width: 16px;
+      height: 80px;
+      background: -webkit-linear-gradient(#f00,
+      #e36d00 3px,
+      #fbd342 5px,
+      #e36d00 8px,
+      #e36d00 12px,
+      #f00 16px,
+      rgba(255, 0, 0, 0.8) 26px,
+      rgba(255, 0, 0, 0.6));
+      border-radius: 5px 5px 0 0;
+    }
+
+    /* 动画 */
+    @keyframes rotate {
+
+      0%,
+      100% {
+        transform: rotate(-10deg);
+      }
+
+      50% {
+        transform: rotate(10deg);
+      }
+    }
+
+    /* 左灯笼 */
+    .left {
+      float: left;
+    }
+
+    /* 右灯笼 */
+    .right {
+      float: right;
+    }
+
+    /* 左对联 */
+    .duilian.left {
+      position: absolute;
+      top: 130px;
+      left: 394px;
+      background-color: #f00;
+      height: 300px;
+      width: 45px;
+    }
+
+    /* 右对联 */
+    .duilian.right {
+      position: absolute;
+      top: 130px;
+      right: 394px;
+      background-color: #f00;
+      height: 300px;
+      width: 45px;
+    }
+
+    /* 横批 */
+    .duilian.top {
+      position: absolute;
+      top: 30px;
+      right: calc(50% - 100px);
+      background-color: #f00;
+      height: 45px;
+      width: 200px;
+      font-size: 32px;
+      text-align: center;
+      line-height: 45px;
+    }
+
+    /* 对联文字 */
+    .duilian span {
+      display: block;
+      font-size: 32px;
+      text-align: center;
+      width: 45px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="app">
+  <div class="container left">
+    <span class="head-line"></span>
+    <div class="center">
+      <div class="center-line">
+        <span>元旦快乐</span>
+      </div>
+      <span class="footer-line"></span>
+    </div>
+  </div>
+
+  <div class="container right">
+    <span class="head-line"></span>
+    <div class="center">
+      <div class="center-line">
+        <span>元旦快乐</span>
+      </div>
+      <span class="footer-line"></span>
+    </div>
+  </div>
+
+  <div class="duilian left">
+            <span>
+                满帘花影月三五
+            </span>
+  </div>
+
+  <div class="duilian right">
+            <span>
+                一碗汤圆情万千
+            </span>
+  </div>
+
+  <div class="duilian top">元宵纳福</div>
+</div>
+</body>
+
+</html>
